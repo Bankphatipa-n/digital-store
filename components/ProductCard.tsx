@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,10 +10,11 @@ interface ProductProps {
   originalPrice?: number;
   tag?: string;
   imageUrl: string;
-  category: string; // เพิ่มตัวแปรหมวดหมู่
+  category: string;
+  stripeUrl: string;
 }
 
-export default function ProductCard({ id, title, price, originalPrice, tag, imageUrl, category }: ProductProps) {
+export default function ProductCard({ id, title, price, originalPrice, tag, imageUrl, category, stripeUrl }: ProductProps) {
   return (
     <Link href={`/product/${id}`} className="group block bg-white rounded-2xl p-3 border border-gray-100 hover:shadow-xl hover:border-transparent transition-all duration-300">
       <div className="relative overflow-hidden rounded-xl bg-gray-50 aspect-[4/3] mb-4">
@@ -26,7 +29,6 @@ export default function ProductCard({ id, title, price, originalPrice, tag, imag
       </div>
       
       <div className="flex flex-col gap-1 px-2 pb-2">
-        {/* แสดงชื่อหมวดหมู่ตัวเล็กๆ เหนือชื่อสินค้า */}
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">{category}</p>
         <h3 className="text-base font-medium text-gray-900 line-clamp-1 group-hover:text-blue-600 transition-colors">
           {title}
@@ -42,11 +44,20 @@ export default function ProductCard({ id, title, price, originalPrice, tag, imag
             )}
           </div>
           
-          <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 group-hover:bg-gray-900 group-hover:text-white transition-colors">
+          {/* แก้ไขตรงนี้: เปลี่ยนกลับเป็น <button> และใช้ window.open แทน */}
+          <button 
+            onClick={(e) => {
+              e.preventDefault(); // ป้องกันไม่ให้ทะลุไปหน้ารายละเอียดสินค้า
+              e.stopPropagation(); // หยุดการส่งเหตุการณ์คลิกไปที่การ์ดหลัก
+              window.open(stripeUrl, '_blank'); // เปิดลิงก์ Stripe ในแท็บใหม่
+            }}
+            className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors shadow-sm"
+            title="ซื้อทันที"
+          >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </div>
+          </button>
         </div>
       </div>
     </Link>

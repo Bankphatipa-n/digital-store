@@ -3,13 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const products = [
-  { id: "p1", title: "Test 50Basic-Vocab", price: 0, tag: "Free", imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", description: "เรียนรู้คำศัพท์พื้นฐาน 50 คำแรก" },
-  { id: "p2", title: "คำศัพท์จีน HSK 1", price: 59, imageUrl: "https://images.unsplash.com/photo-1546410531-bd4cb01bd002?q=80&w=800&auto=format&fit=crop", description: "เจาะลึกคำศัพท์ HSK 1" }
+  { id: "p1", title: "Test 50Basic-Vocab", price: 0, tag: "Free", imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", description: "เรียนรู้คำศัพท์พื้นฐาน 50 คำแรก", stripeUrl: "https://buy.stripe.com/mock_link_p1" },
+  { id: "p2", title: "คำศัพท์จีน HSK 1", price: 59, imageUrl: "https://images.unsplash.com/photo-1546410531-bd4cb01bd002?q=80&w=800&auto=format&fit=crop", description: "เจาะลึกคำศัพท์ HSK 1", stripeUrl: "https://buy.stripe.com/mock_link_p2" },
+  { id: "p3", title: "รวมคำศัพท์จีน HSK 1-6", price: 599, originalPrice: 924, tag: "-35%", imageUrl: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop", description: "รวมคำศัพท์ระดับ 1-6", stripeUrl: "https://buy.stripe.com/mock_link_p3" },
+  { id: "p4", title: "ระบบทำ Auto Translate", price: 338, imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop", description: "ระบบแปลภาษาอัตโนมัติ", stripeUrl: "https://buy.stripe.com/mock_link_p4" }
 ];
 
-// แก้ไขตรงนี้: เพิ่ม async และเปลี่ยน params เป็น Promise
 export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  // ต้องใส่ await เพื่อแกะกล่อง params ก่อนใช้งานตามกฎใหม่ของ Next.js 15
   const resolvedParams = await params;
   const product = products.find((p) => p.id === resolvedParams.id);
 
@@ -27,9 +27,16 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             <h1 className="text-3xl font-bold text-gray-900 mb-4">{product.title}</h1>
             <span className="text-3xl font-bold text-gray-900 mb-6">{product.price === 0 ? "ฟรี" : `฿${product.price}`}</span>
             <p className="text-gray-600 mb-8">{product.description}</p>
-            <button className="w-full bg-gray-900 text-white font-medium py-4 rounded-full hover:bg-gray-800 transition transform hover:scale-[1.02]">
-              เพิ่มลงตะกร้า
-            </button>
+            
+            {/* เปลี่ยนเป็นปุ่มลิงก์ภายนอกเปิดไป Stripe */}
+            <a 
+              href={product.stripeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full bg-gray-900 text-white font-medium py-4 rounded-full hover:bg-gray-800 transition transform hover:scale-[1.02] text-center shadow-lg"
+            >
+              ซื้อสินค้าชิ้นนี้ทันที
+            </a>
           </div>
         </div>
       </div>
