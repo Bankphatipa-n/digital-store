@@ -14,15 +14,15 @@ const products = [
     tag: "Free", 
     imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", 
     category: "Vocabulary PDF",
-    stripeUrl: "https://buy.stripe.com/mock_link_p1" // เอาลิงก์จาก Stripe มาใส่ตรงนี้
+    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" // 👈 เปลี่ยนจาก stripeUrl เป็น paymentLink
   },
   { 
     id: "p2", 
     title: "คำศัพท์จีน HSK 1", 
     price: 59, 
-    imageUrl: "https://images.unsplash.com/photo-1546410531-bd4cb01bd002?q=80&w=800&auto=format&fit=crop", 
+    imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", 
     category: "Vocabulary PDF",
-    stripeUrl: "https://buy.stripe.com/mock_link_p2"
+    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" // 👈 แก้ตรงนี้ด้วย
   },
   { 
     id: "p3", 
@@ -32,7 +32,7 @@ const products = [
     tag: "-35%", 
     imageUrl: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop", 
     category: "Anki Templates",
-    stripeUrl: "https://buy.stripe.com/mock_link_p3"
+    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" // 👈 แก้ตรงนี้ด้วย
   },
   { 
     id: "p4", 
@@ -40,15 +40,20 @@ const products = [
     price: 338, 
     imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop", 
     category: "Dev Tools",
-    stripeUrl: "https://buy.stripe.com/mock_link_p4"
+    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" // 👈 แก้ตรงนี้ด้วย
   }
 ];
 
 const bestSellers = products.slice(0, 4);
+// ... (ส่วนต้นของไฟล์ยังเหมือนเดิม)
 
 export default function Storefront() {
   const [activeCategory, setActiveCategory] = useState("All Products");
-  const categories = ["All Products", "Vocabulary PDF", "Anki Templates", "Dev Tools"];
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // 1. เพิ่ม E-book เข้ามาในหมวดหมู่ตรงนี้
+  const categories = ["All Products", "Vocabulary PDF", "Anki Templates", "Dev Tools", "E-book"];
   
   const filteredProducts = activeCategory === "All Products" 
     ? products 
@@ -62,28 +67,33 @@ export default function Storefront() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           
           {/* โลโก้แบรนด์ */}
-          <Link href="/bear.jpg" className="flex items-center gap-3 group">
-            {/* กล่องใส่โลโก้ (เดี๋ยวเราจะเอารูปน้องหมีมาใส่ตรงนี้) */}
-           {/* กล่องใส่โลโก้ */}
-            <div className="relative w-10 h-10 rounded-full flex items-center justify-center overflow-hidden border border-gray-200 shadow-sm">
-              <Image src="/bear.jpg" alt="หลักสูตรเร่งจำ Logo" fill className="object-cover" />
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-10 h-10 rounded-full flex items-center justify-center overflow-hidden border border-gray-100 shadow-sm">
+              <Image src="/icon.jpg" alt="หลักสูตรเร่งจำ Logo" fill className="object-cover" />
             </div>
             <span className="text-xl font-bold text-gray-900 tracking-tight">
-              หลักสูตรเร่งจำ <span className="text-pink-600 font-black">Shop</span>
+              หลักสูตรเร่งจำ <span className="text-blue-600 font-black">Shop</span>
             </span>
           </Link>
 
-          {/* เมนูตรงกลาง */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-500">
-            <Link href="/" className="text-gray-900 font-bold">Home</Link>
-            <Link href="#catalog" className="hover:text-gray-900 transition">Shop</Link>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition">About</a>
+          {/* 1. เมนู Desktop (ซ่อนในมือถือด้วย md:flex) */}
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+            <Link href="/" className="text-gray-900 hover:text-blue-600 transition-colors">Home</Link>
+            <a href="#catalog" className="text-gray-500 hover:text-blue-600 transition-colors">Shop</a>
+            <a 
+              href="https://bankphatipan.com/insurance" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-500 hover:text-blue-600 transition-colors"
+            >
+              บริการประกัน
+            </a>
           </nav>
 
-          {/* ปุ่ม Let's Talk มุมขวาบน */}
-          <div className="flex items-center">
+          {/* 2. ปุ่ม Let's Talk แบบ Desktop (ซ่อนในมือถือด้วย md:flex) */}
+          <div className="hidden md:flex items-center">
             <a 
-              href="https://bankphatipan.com/" // ใส่ลิงก์เว็บอื่น หรือลิงก์ Inbox Facebook ของคุณตรงนี้
+              href="https://bankphatipan.com/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-gray-900 text-white text-sm font-bold px-6 py-2.5 rounded-full hover:bg-blue-600 transition-colors shadow-md flex items-center gap-2"
@@ -95,20 +105,89 @@ export default function Storefront() {
             </a>
           </div>
 
+          {/* 3. ปุ่ม Hamburger เมนู (โชว์เฉพาะมือถือด้วย md:hidden) */}
+          <button 
+            className="md:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMobileMenuOpen ? (
+                // ไอคอนกากบาท (เมื่อเมนูเปิด)
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                // ไอคอน 3 ขีด (เมื่อเมนูปิด)
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
+
+        {/* 4. เมนู Dropdown สำหรับมือถือ (แสดงเมื่อ isMobileMenuOpen = true) */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute w-full bg-white border-b border-gray-100 shadow-lg top-16 left-0 z-40">
+            <div className="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+              <Link 
+                href="/" 
+                className="block px-4 py-3 text-base font-bold text-gray-900 bg-gray-50 rounded-xl"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <a 
+                href="#catalog" 
+                className="block px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-xl hover:text-blue-600"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Shop
+              </a>
+              <a 
+                href="https://bankphatipan.com/insurance" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-xl hover:text-blue-600"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                บริการประกัน
+              </a>
+              <div className="pt-4">
+                <a 
+                  href="https://bankphatipan.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full bg-gray-900 text-white text-base font-bold px-6 py-3.5 rounded-xl hover:bg-blue-600 transition-colors shadow-md flex items-center justify-center gap-2"
+                  onClick={() => setIsMobileMenuOpen(false)} // กดแล้วปิดเมนูให้ด้วย
+                >
+                  Let's Talk
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12">
         <div className="relative w-full h-[350px] md:h-[450px] rounded-3xl overflow-hidden bg-gray-900 flex items-center group">
-          <Image src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop" alt="Promotion Banner" fill className="object-cover opacity-60 group-hover:opacity-50 transition-opacity duration-700" />
+          
+          {/* แก้ไขตรงบรรทัดนี้: เปลี่ยน src เป็นรูปในโฟลเดอร์ public ของเรา */}
+          <Image 
+            src="/bannner.png" 
+            alt="Promotion Banner" 
+            fill 
+            className="object-cover opacity-60 group-hover:opacity-50 transition-opacity duration-700" 
+          />
+          
           <div className="relative z-10 px-8 md:px-16 w-full max-w-3xl">
             <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold tracking-wider mb-4 border border-white/30">HOT DEALS 🔥</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">Summer Sale <br className="hidden md:block" /> Up To 70% Off</h1>
             <p className="text-lg text-gray-200 mb-8 max-w-xl">ยกระดับทักษะของคุณด้วยคลังคำศัพท์และเครื่องมือสำหรับนักพัฒนา ในราคาที่ดีที่สุดของปี</p>
-            <Link href="#catalog" className="inline-block bg-white text-gray-900 px-8 py-3.5 rounded-full font-bold hover:bg-gray-100 transition transform hover:scale-105 shadow-xl">
+            
+            <a href="#catalog" className="inline-block bg-white text-gray-900 px-8 py-3.5 rounded-full font-bold hover:bg-gray-100 transition transform hover:scale-105 shadow-xl">
               Shop Now
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -120,10 +199,13 @@ export default function Storefront() {
             <h2 className="text-2xl font-bold text-gray-900">Best Sellers</h2>
             <p className="text-gray-500 text-sm mt-1">สินค้าขายดีที่ทุกคนต้องมี</p>
           </div>
-          <Link href="#catalog" className="hidden sm:block text-sm font-bold text-blue-600 hover:text-blue-800 transition">
+          
+          {/* 4. แก้ไขปุ่ม View All ให้เลื่อนลงไปที่ Shop */}
+          <a href="#catalog" className="hidden sm:block text-sm font-bold text-blue-600 hover:text-blue-800 transition">
             View All →
-          </Link>
+          </a>
         </div>
+        
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {bestSellers.map((p) => (

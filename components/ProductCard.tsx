@@ -11,13 +11,15 @@ interface ProductProps {
   tag?: string;
   imageUrl: string;
   category: string;
-  stripeUrl: string;
+  paymentLink: string;
 }
 
-export default function ProductCard({ id, title, price, originalPrice, tag, imageUrl, category, stripeUrl }: ProductProps) {
+export default function ProductCard({ id, title, price, originalPrice, tag, imageUrl, category, paymentLink }: ProductProps) {
   return (
     <Link href={`/product/${id}`} className="group block bg-white rounded-2xl p-3 border border-gray-100 hover:shadow-xl hover:border-transparent transition-all duration-300">
-      <div className="relative overflow-hidden rounded-xl bg-gray-50 aspect-[4/3] mb-4">
+      
+      {/* 1. เปลี่ยน aspect-[4/3] เป็น aspect-4/3 เพื่อลบเส้นใต้สีเหลืองใน VS Code */}
+      <div className="relative overflow-hidden rounded-xl bg-gray-50 aspect-4/3 mb-4">
         {tag && (
           <span className="absolute top-3 left-3 z-10 bg-yellow-400 text-gray-900 text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm">
             {tag}
@@ -44,20 +46,21 @@ export default function ProductCard({ id, title, price, originalPrice, tag, imag
             )}
           </div>
           
-          {/* แก้ไขตรงนี้: เปลี่ยนกลับเป็น <button> และใช้ window.open แทน */}
-          <button 
+          {/* 2. เปลี่ยนจาก <button> เป็น <div role="button"> เพื่อให้ถูกต้องตามมาตรฐาน HTML (ห้ามเอาปุ่มใส่ในลิงก์) */}
+          <div 
+            role="button"
             onClick={(e) => {
               e.preventDefault(); // ป้องกันไม่ให้ทะลุไปหน้ารายละเอียดสินค้า
               e.stopPropagation(); // หยุดการส่งเหตุการณ์คลิกไปที่การ์ดหลัก
-              window.open(stripeUrl, '_blank'); // เปิดลิงก์ Stripe ในแท็บใหม่
+              window.open(paymentLink, '_blank'); // เปิดลิงก์ Stripe ในแท็บใหม่
             }}
-            className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors shadow-sm"
+            className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white transition-colors shadow-sm cursor-pointer"
             title="ซื้อทันที"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
-          </button>
+          </div>
         </div>
       </div>
     </Link>
