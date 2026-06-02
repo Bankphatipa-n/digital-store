@@ -11,7 +11,7 @@ const products = [
     tag: "Free", 
     imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", 
     description: "เรียนรู้คำศัพท์พื้นฐาน 50 คำแรก", 
-    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" 
+    paymentLink: "https://drive.google.com/drive/folders/1_XqLH3zpQkg0ssqVe-2CTRbjtsWI_-n-?usp=sharing" 
   },
   { 
     id: "p2", 
@@ -67,7 +67,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               rel="noopener noreferrer"
               className="w-full bg-gray-900 text-white font-medium py-4 rounded-full hover:bg-gray-800 transition transform hover:scale-[1.02] text-center shadow-lg"
             >
-              ซื้อสินค้าชิ้นนี้ทันที
+              {/* เปลี่ยนข้อความตรงนี้โดยใช้เงื่อนไขเช็คราคา */}
+              {product.price === 0 ? "ทดลองใช้สินค้า" : "ซื้อสินค้าชิ้นนี้ทันที"}
             </a>
           </div>
         </div>
