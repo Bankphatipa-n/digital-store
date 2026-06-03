@@ -12,35 +12,85 @@ const products = [
     title: "Test 50Basic-Vocab", 
     price: 0, 
     tag: "Free", 
-    imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", 
-    category: "Vocabulary PDF",
+    imageUrl: "/b1.png", 
+    category: "Vocabulary",
     paymentLink: "https://drive.google.com/drive/folders/1_XqLH3zpQkg0ssqVe-2CTRbjtsWI_-n-?usp=sharing" // 👈 เปลี่ยนจาก stripeUrl เป็น paymentLink
   },
   { 
     id: "p2", 
-    title: "คำศัพท์จีน HSK 1", 
+    title: "คำศัพท์จีน HSK 3.0 Lv.1", 
     price: 59, 
-    imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", 
-    category: "Vocabulary PDF",
+    imageUrl: "/b2.png", 
+    category: "Vocabulary",
     paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" // 👈 แก้ตรงนี้ด้วย
   },
   { 
     id: "p3", 
-    title: "รวมคำศัพท์จีน HSK 1-6", 
+    title: "รวมคำศัพท์จีน HSK 3.0 Lv.1-6", 
     price: 599, 
     originalPrice: 924, 
     tag: "-35%", 
-    imageUrl: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop", 
-    category: "Anki Templates",
-    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" // 👈 แก้ตรงนี้ด้วย
+    imageUrl: "/A1.png", 
+    category: "Vocabulary",
+    paymentLink: "https://buy.stripe.com/3cI28tfDM9aO7tjckmaEE06" // 👈 แก้ตรงนี้ด้วย
   },
   { 
     id: "p4", 
-    title: "ระบบทำ Auto Translate", 
-    price: 338, 
-    imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop", 
-    category: "Dev Tools",
-    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" // 👈 แก้ตรงนี้ด้วย
+    title: "คำศัพท์จีน HSK 3.0 Lv.2", 
+    price: 79, 
+    imageUrl: "/b3.png", 
+    category: "Vocabulary",
+    paymentLink: "https://buy.stripe.com/7sY14pbnw9aOaFvesuaEE01" // 👈 แก้ตรงนี้ด้วย
+  },
+  { 
+    id: "p5", 
+    title: "คำศัพท์จีน HSK 3.0 Lv.3", 
+    price: 99, 
+    imageUrl: "/b4.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+    paymentLink: "https://buy.stripe.com/28EfZjbnw3Qu00R2JMaEE02"
+  }
+    ,
+  { 
+    id: "p6", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
+    title: "คำศัพท์จีน HSK 3.0 Lv.4", 
+    price: 129, 
+    imageUrl: "/b5.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+    description: "เจาะลึกคำศัพท์ HSK 4", 
+    paymentLink: "https://buy.stripe.com/8x2cN73V4aeS8xn702aEE03"
+  }
+  ,
+  { 
+    id: "p7", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
+    title: "คำศัพท์จีน HSK 3.0 Lv.5", 
+    price: 229, 
+    imageUrl: "/b6.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+    description: "เจาะลึกคำศัพท์ HSK 5", 
+    paymentLink: "https://buy.stripe.com/aFa14p0IS5YCcND846aEE04"
+  }
+  ,
+  { 
+    id: "p8", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
+    title: "คำศัพท์จีน HSK 3.0 Lv.6", 
+    price: 329, 
+    imageUrl: "/b7.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+    description: "เจาะลึกคำศัพท์ HSK 6", 
+    paymentLink: "https://buy.stripe.com/3cI9AV0IS72G00R846aEE05"
+  }
+  ,
+  { 
+    id: "p9", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
+    title: "รวมคำศัพท์จีน HSK 3.0 Lv.7-9", 
+    price: 629, 
+    originalPrice: 1050, 
+    tag: "-40%", 
+    imageUrl: "/A2.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+    description: "เจาะลึกคำศัพท์ HSK 7-9", 
+    paymentLink: "https://buy.stripe.com/eVqfZj8bkcn0aFv846aEE07"
   }
 ];
 
@@ -53,7 +103,7 @@ export default function Storefront() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   // 1. เพิ่ม E-book เข้ามาในหมวดหมู่ตรงนี้
-  const categories = ["All Products", "Vocabulary PDF", "Anki Templates", "Dev Tools", "E-book"];
+  const categories = ["All Products", "Vocabulary", "Anki Templates", "Dev Tools", "E-book"];
   
   const filteredProducts = activeCategory === "All Products" 
     ? products 
@@ -78,7 +128,7 @@ export default function Storefront() {
 
           {/* 1. เมนู Desktop (ซ่อนในมือถือด้วย md:flex) */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
-            <Link href="/" className="text-gray-900 hover:text-blue-600 transition-colors">Home</Link>
+            <a href="#" className="text-gray-900 hover:text-blue-600 transition-colors">Home</a>
             <a href="#catalog" className="text-gray-500 hover:text-blue-600 transition-colors">Shop</a>
             <a 
               href="https://bankphatipan.com/insurance" 
@@ -126,13 +176,13 @@ export default function Storefront() {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute w-full bg-white border-b border-gray-100 shadow-lg top-16 left-0 z-40">
             <div className="px-4 pt-2 pb-6 space-y-2 flex flex-col">
-              <Link 
-                href="/" 
+              <a
+                href="#" 
                 className="block px-4 py-3 text-base font-bold text-gray-900 bg-gray-50 rounded-xl"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
-              </Link>
+              </a>
               <a 
                 href="#catalog" 
                 className="block px-4 py-3 text-base font-medium text-gray-600 hover:bg-gray-50 rounded-xl hover:text-blue-600"
@@ -170,9 +220,8 @@ export default function Storefront() {
 
       {/* Hero Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-12">
-        <div className="relative w-full h-[350px] md:h-[450px] rounded-3xl overflow-hidden bg-gray-900 flex items-center group">
+        <div className="relative w-full h-[350px] md:h-[450px] rounded-3xl overflow-hidden bg-gray-900 flex items-center group shadow-xl">
           
-          {/* แก้ไขตรงบรรทัดนี้: เปลี่ยน src เป็นรูปในโฟลเดอร์ public ของเรา */}
           <Image 
             src="/bannner.png" 
             alt="Promotion Banner" 
@@ -181,13 +230,29 @@ export default function Storefront() {
           />
           
           <div className="relative z-10 px-8 md:px-16 w-full max-w-3xl">
-            <span className="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold tracking-wider mb-4 border border-white/30">HOT DEALS 🔥</span>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight">Summer Sale <br className="hidden md:block" /> Up To 70% Off</h1>
-            <p className="text-lg text-gray-200 mb-8 max-w-xl">ยกระดับทักษะของคุณด้วยคลังคำศัพท์และเครื่องมือสำหรับนักพัฒนา ในราคาที่ดีที่สุดของปี</p>
+            {/* ป้าย Tag สีแดงเตะตา */}
+            <span className="inline-block py-1 px-3 rounded-full bg-red-600 text-white text-xs font-bold tracking-wider mb-4 shadow-md">
+              โปรโหด ลดจัดหนัก 🔥
+            </span>
             
-            <a href="https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" target="_blank" className="inline-block bg-white text-gray-900 px-8 py-3.5 rounded-full font-bold hover:bg-gray-100 transition transform hover:scale-105 shadow-xl">
-              Shop Now
-            </a>
+            {/* หัวข้อหลัก */}
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-3 leading-tight">
+              รวมคลังคำศัพท์ HSK 1 - 6 <br className="hidden md:block" /> & ดิจิทัลแฟลชการ์ด
+            </h1>
+            
+            {/* รายละเอียดราคา (ขีดฆ่าราคาเดิม เน้นราคาใหม่) */}
+            <p className="text-lg text-gray-200 mb-8 max-w-xl">
+              ตัวช่วยอัปสกิลภาษาแบบก้าวกระโดด <span className="line-through text-white-400 font-medium ml-1">ปกติ 924.-</span> <br className="hidden md:block" />
+              <span className="text-yellow-400 font-extrabold text-2xl">ลดเหลือเพียง 599.-</span> คุ้มที่สุดของปี!
+            </p>
+            
+            {/* ปุ่ม Buy Now พร้อมลิงก์ Stripe จริง */}
+            <Link 
+              href="/product/p3" 
+              className="inline-block bg-white text-gray-900 px-10 py-3.5 rounded-full font-bold hover:bg-gray-100 transition transform hover:scale-105 shadow-xl text-center"
+            >
+              Buy Now
+            </Link>
           </div>
         </div>
       </section>

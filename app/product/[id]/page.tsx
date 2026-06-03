@@ -9,35 +9,88 @@ const products = [
     title: "Test 50Basic-Vocab", 
     price: 0, 
     tag: "Free", 
-    imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop", 
+    imageUrl: "/b1.png", 
+    category: "Vocabulary",
     description: "เรียนรู้คำศัพท์พื้นฐาน 50 คำแรก", 
-    paymentLink: "https://drive.google.com/drive/folders/1_XqLH3zpQkg0ssqVe-2CTRbjtsWI_-n-?usp=sharing" 
+    paymentLink: "https://drive.google.com/drive/folders/1_XqLH3zpQkg0ssqVe-2CTRbjtsWI_-n-?usp=sharing" // 👈 เปลี่ยนจาก stripeUrl เป็น paymentLink
   },
   { 
     id: "p2", 
-    title: "คำศัพท์จีน HSK 1", 
+    title: "คำศัพท์จีน HSK 3.0 Lv.1", 
     price: 59, 
-    imageUrl: "https://images.unsplash.com/photo-1546410531-bd4cb01bd002?q=80&w=800&auto=format&fit=crop", 
-    description: "เจาะลึกคำศัพท์ HSK 1", 
-    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" 
+    imageUrl: "/b2.png", 
+    category: "Vocabulary",
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.1 แปลไทย และตัวอย่างประโยค ,ไฟล์ google sheet, พร้อมคลิปสอนการใช้งาน ", 
+    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" // 👈 แก้ตรงนี้ด้วย
   },
   { 
     id: "p3", 
-    title: "รวมคำศัพท์จีน HSK 1-6", 
+    title: "รวมคำศัพท์จีน HSK 3.0 Lv.1-6", 
     price: 599, 
     originalPrice: 924, 
     tag: "-35%", 
-    imageUrl: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800&auto=format&fit=crop", 
-    description: "รวมคำศัพท์ระดับ 1-6", 
-    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" 
+    imageUrl: "/A1.png", 
+    category: "Vocabulary",
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.1-6 แปลไทย และตัวอย่างประโยค ,ไฟล์ google sheet, พร้อมคลิปสอนการใช้งาน ", 
+    paymentLink: "https://buy.stripe.com/3cI28tfDM9aO7tjckmaEE06" // 👈 แก้ตรงนี้ด้วย
   },
   { 
     id: "p4", 
-    title: "ระบบทำ Auto Translate", 
-    price: 338, 
-    imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop", 
-    description: "ระบบแปลภาษาอัตโนมัติ", 
-    paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" 
+    title: "คำศัพท์จีน HSK 3.0 Lv.2", 
+    price: 79, 
+    imageUrl: "/b3.png", 
+    category: "Vocabulary",
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.2 แปลไทย และตัวอย่างประโยค ,ไฟล์ google sheet, พร้อมคลิปสอนการใช้งาน ", 
+    paymentLink: "https://buy.stripe.com/7sY14pbnw9aOaFvesuaEE01" // 👈 แก้ตรงนี้ด้วย
+  },
+  { 
+    id: "p5", 
+    title: "คำศัพท์จีน HSK 3.0 Lv.3", 
+    price: 99, 
+    imageUrl: "/b4.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.3 แปลไทย และตัวอย่างประโยค ,ไฟล์ google sheet, พร้อมคลิปสอนการใช้งาน ", 
+    paymentLink: "https://buy.stripe.com/28EfZjbnw3Qu00R2JMaEE02"
+  }
+    ,
+  { 
+    id: "p6", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
+    title: "คำศัพท์จีน HSK 3.0 Lv.4", 
+    price: 129, 
+    imageUrl: "/b5.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.4 แปลไทย และตัวอย่างประโยค ,ไฟล์ google sheet, พร้อมคลิปสอนการใช้งาน ", 
+    paymentLink: "https://buy.stripe.com/8x2cN73V4aeS8xn702aEE03"
+  }
+  ,
+  { 
+    id: "p7", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
+    title: "คำศัพท์จีน HSK 3.0 Lv.5", 
+    price: 229, 
+    imageUrl: "/b6.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.5 แปลไทย และตัวอย่างประโยค ,ไฟล์ google sheet, พร้อมคลิปสอนการใช้งาน ", 
+    paymentLink: "https://buy.stripe.com/aFa14p0IS5YCcND846aEE04"
+  }
+  ,
+  { 
+    id: "p8", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
+    title: "คำศัพท์จีน HSK 3.0 Lv.6", 
+    price: 329, 
+    imageUrl: "/b7.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.6 แปลไทย และตัวอย่างประโยค ,ไฟล์ google sheet, พร้อมคลิปสอนการใช้งาน ", 
+    paymentLink: "https://buy.stripe.com/3cI9AV0IS72G00R846aEE05"
+  }
+  ,
+  { 
+    id: "p9", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
+    title: "รวมคำศัพท์จีน HSK 3.0 Lv.7-9", 
+    price: 629, 
+    imageUrl: "/A2.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.7-9 แปลไทย และตัวอย่างประโยค ,ไฟล์ google sheet, พร้อมคลิปสอนการใช้งาน ",  
+    paymentLink: "https://buy.stripe.com/eVqfZj8bkcn0aFv846aEE07"
   }
 ];
 
