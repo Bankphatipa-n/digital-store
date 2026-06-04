@@ -81,17 +81,17 @@ const products = [
     paymentLink: "https://buy.stripe.com/3cI9AV0IS72G00R846aEE05"
   }
   ,
-  { 
-    id: "p9", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
-    title: "รวมคำศัพท์จีน HSK 3.0 Lv.7-9", 
-    price: 629, 
-    originalPrice: 1050, 
-    tag: "-40%", 
-    imageUrl: "/A2.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
-    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
-    description: "เจาะลึกคำศัพท์ HSK 7-9", 
-    paymentLink: "https://buy.stripe.com/eVqfZj8bkcn0aFv846aEE07"
-  }
+  // { 
+  //   id: "p9", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
+  //   title: "รวมคำศัพท์จีน HSK 3.0 Lv.7-9", 
+  //   price: 629, 
+  //   originalPrice: 1050, 
+  //   tag: "-40%", 
+  //   imageUrl: "/A2.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+  //   category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+  //   description: "เจาะลึกคำศัพท์ HSK 7-9", 
+  //   paymentLink: "https://buy.stripe.com/eVqfZj8bkcn0aFv846aEE07"
+  // }
 ];
 
 const bestSellers = products.slice(0, 4);

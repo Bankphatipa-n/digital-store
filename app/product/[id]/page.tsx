@@ -83,15 +83,15 @@ const products = [
     paymentLink: "https://buy.stripe.com/3cI9AV0IS72G00R846aEE05"
   }
   ,
-  { 
-    id: "p9", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
-    title: "รวมคำศัพท์จีน HSK 3.0 Lv.7-9", 
-    price: 629, 
-    imageUrl: "/A2.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
-    category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
-    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.7-9 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย)", 
-    paymentLink: "https://buy.stripe.com/eVqfZj8bkcn0aFv846aEE07"
-  }
+  // { 
+  //   id: "p9", // 💡 ตั้ง ID ห้ามซ้ำกับตัวเดิม เช่น p5, p6, p7 ไปเรื่อยๆ
+  //   title: "รวมคำศัพท์จีน HSK 3.0 Lv.7-9", 
+  //   price: 629, 
+  //   imageUrl: "/A2.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
+  //   category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
+  //   description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.7-9 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย)", 
+  //   paymentLink: "https://buy.stripe.com/eVqfZj8bkcn0aFv846aEE07"
+  // }
 ];
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
