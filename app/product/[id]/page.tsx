@@ -11,7 +11,7 @@ const products = [
     tag: "Free", 
     imageUrl: "/b1.png", 
     category: "Vocabulary",
-    description: "Anki ดิจิทัลแฟลชการ์ด 50 คำพื้นฐาน และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย)", 
+    description: "Anki ดิจิทัลแฟลชการ์ด 50 คำพื้นฐาน และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย) พร้อมการออกเสียงด้วยระบบของ Anki ", 
     paymentLink: "https://drive.google.com/drive/folders/1_XqLH3zpQkg0ssqVe-2CTRbjtsWI_-n-?usp=sharing" // 👈 เปลี่ยนจาก stripeUrl เป็น paymentLink
   },
   { 
@@ -20,7 +20,7 @@ const products = [
     price: 59, 
     imageUrl: "/b2.png", 
     category: "Vocabulary",
-    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.1 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย)", 
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.1 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย) พร้อมการออกเสียงด้วยระบบของ Anki", 
     paymentLink: "https://buy.stripe.com/bJe14pfDMaeS7tjdoqaEE00" // 👈 แก้ตรงนี้ด้วย
   },
   { 
@@ -31,7 +31,7 @@ const products = [
     tag: "-35%", 
     imageUrl: "/A1.png", 
     category: "Vocabulary",
-    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.1-6 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย)", 
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.1-6 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย) พร้อมการออกเสียงด้วยระบบของ Anki", 
     paymentLink: "https://buy.stripe.com/3cI28tfDM9aO7tjckmaEE06" // 👈 แก้ตรงนี้ด้วย
   },
   { 
@@ -40,7 +40,7 @@ const products = [
     price: 79, 
     imageUrl: "/b3.png", 
     category: "Vocabulary",
-    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.2 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย)", 
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.2 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย) พร้อมการออกเสียงด้วยระบบของ Anki", 
     paymentLink: "https://buy.stripe.com/7sY14pbnw9aOaFvesuaEE01" // 👈 แก้ตรงนี้ด้วย
   },
   { 
@@ -49,7 +49,7 @@ const products = [
     price: 99, 
     imageUrl: "/b4.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
     category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
-    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.3 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย)",  
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.3 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย) พร้อมการออกเสียงด้วยระบบของ Anki",  
     paymentLink: "https://buy.stripe.com/28EfZjbnw3Qu00R2JMaEE02"
   }
     ,
@@ -59,7 +59,7 @@ const products = [
     price: 129, 
     imageUrl: "/b5.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
     category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
-    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.4 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย)",  
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.4 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย) พร้อมการออกเสียงด้วยระบบของ Anki",  
     paymentLink: "https://buy.stripe.com/8x2cN73V4aeS8xn702aEE03"
   }
   ,
@@ -69,7 +69,7 @@ const products = [
     price: 229, 
     imageUrl: "/b6.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
     category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
-    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.5 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย)", 
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.5 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย) พร้อมการออกเสียงด้วยระบบของ Anki", 
     paymentLink: "https://buy.stripe.com/aFa14p0IS5YCcND846aEE04"
   }
   ,
@@ -79,7 +79,7 @@ const products = [
     price: 329, 
     imageUrl: "/b7.png", // ลิงก์รูปภาพ หรือใส่เป็น "/ชื่อรูป.png" ถ้าเอารูปไปวางในโฟลเดอร์ public
     category: "Vocabulary", // 💡 ใส่ชื่อหมวดหมู่ให้ตรงกับปุ่มกรอกด้านล่าง
-    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.6 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย)", 
+    description: "Anki ดิจิทัลแฟลชการ์ด HSK 3.0 Lv.6 และไฟล์ google sheet แปลไทย และตัวอย่างประโยค (จีน&ไทย) พร้อมการออกเสียงด้วยระบบของ Anki", 
     paymentLink: "https://buy.stripe.com/3cI9AV0IS72G00R846aEE05"
   }
   ,
