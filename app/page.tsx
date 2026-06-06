@@ -92,6 +92,16 @@ const products = [
   //   description: "เจาะลึกคำศัพท์ HSK 7-9", 
   //   paymentLink: "https://buy.stripe.com/eVqfZj8bkcn0aFv846aEE07"
   // }
+  { 
+    id: "p9", 
+    title: "รวมคำศัพท์จีน HSK 3.0 Lv.7-9", 
+    price: 629, 
+    imageUrl: "/A2.png", 
+    category: "Vocabulary", 
+    tag: "New", // 👈 1. เปลี่ยนแท็กตรงนี้เป็น New สีจะเปลี่ยนเป็นเขียวมินต์ทันที
+    isPreOrder: true, // 👈 2. ใส่สถานะ Pre-order
+    paymentLink: "mailto:theremembernow@hotmail.com?subject=สนใจ Pre-order สินค้า HSK 3.0 Lv.7-9&body=สวัสดีครับคุณ Bank phatipan ผมสนใจสั่งซื้อล่วงหน้าคลังคำศัพท์ HSK 7-9 ครับ ส่งรายละเอียดกลับมาที่เมลนี้ได้เลยครับ" // 👈 3. ใส่ลิงก์อีเมล
+  }
 ];
 
 const bestSellers = products.slice(0, 4);
